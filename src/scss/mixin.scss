@@ -1,0 +1,5 @@
+//px转换rem方法
+@function px($px:30) {
+    $rem: 75; //75px
+    @return ($px/$rem)+rem;
+}

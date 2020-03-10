@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
-    "strict": true,
+    "module": "commonjs", //此处把原先的esnext换成了commonjs，避免报错找不到vue,尽管运行的时候没啥影响
+    "strict": true, //TODO:此处把ts检测关闭了
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
