@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-
+    <van-button type="info" size="large">默认按钮</van-button>
   </div>
 </template>
 
@@ -9,8 +9,8 @@
   import axios from 'axios'
   export default {
     name: 'Home',
-    data(){
-      return{
+    data() {
+      return {
 
       }
     },
@@ -33,7 +33,7 @@
   }
 </script>
 <style lang='scss' scoped>
-@import'../scss/mixin.scss';
+  @import'../scss/mixin.scss';
 
-@import '../scss/home.scss';
+  @import '../scss/home.scss';
 </style>
