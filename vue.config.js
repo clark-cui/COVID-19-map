@@ -39,7 +39,7 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {},    
     // 是否启用 CSS modules for all css / pre-processor files.
-    requireModuleExtension: false
+    modules: false
   },  
   // 是否使用 thread-loader
   parallel: require('os').cpus().length > 1, 
