@@ -3,4 +3,38 @@
         width:100%; 
         height : 400px
     }
+    /deep/ .van-button{
+        margin-top: px(70);
+    }
+    .text{
+        font-size: px(50);
+        padding-top: px(70);
+    }
+    .partTitle{
+        font-size: px(80);
+        font-weight: bolder;
+        padding-top: px(30);
+    }
+    .numPart{
+        margin: px(30) px(50);
+        color: white;
+        background-color: #1989fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-top: px(30);
+        .partItem{
+            padding: px(40);
+            .itemName{
+                padding-bottom: px(30);
+            }
+        }
+    }
+    .time{
+        padding-top: px(50);
+        font-size: px(25);
+        padding-bottom: px(70);
+        color: #999999;
+    }
 }

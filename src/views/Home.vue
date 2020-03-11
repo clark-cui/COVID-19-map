@@ -26,7 +26,8 @@
           'https://img.yzcdn.cn/vant/apple-2.jpg',
           'https://img.yzcdn.cn/vant/apple-1.jpg',
           'https://img.yzcdn.cn/vant/apple-2.jpg',
-        ]
+        ],
+     
       }
     },
     components: {
