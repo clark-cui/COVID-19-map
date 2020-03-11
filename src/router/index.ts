@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
+
+import Home from '../views/Home.vue'
+import Chart from '../views/chart.vue'
 
 const routes = [
   {
@@ -10,12 +12,17 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/chart',
+    name: 'Chart',
+    component: Chart
+  },
  
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+  // mode: 'history',
+  // base: process.env.BASE_URL,
   routes
 })
 
