@@ -12,7 +12,7 @@
         </div>
         <van-button type="info" size="normal" v-show="isCity" @click="back">回到全国地图</van-button>
 
-        <div class="text" v-show="isCity">由于爬取的数据在部分地区命名与echart冲突（少数民族自治州），故图中部分地区会有数据缺失，以顶部总量数据为准</div>
+        <div class="text" v-show="isCity">由于爬取的数据在部分地区命名与echart冲突（少数民族自治州），故图中部分地区会有数据缺失，以疫情统计数据为准</div>
         <div class="time">更新时间：{{updateTime}}</div>
     </div>
 </template>>
@@ -51,11 +51,11 @@
                         value: '',
                     },
                 ],
-                arr: [],
-                updateTimeStore: '',
-                ChinaList: [],
-                isCity: false,
-                myChart: null,
+                arr: [],               //用来缓存累计数字
+                updateTimeStore: '', //用来缓存更新时间
+                ChinaList: [],  
+                isCity: false,         //用来禁止二级地图点击事件
+                myChart: null,          //全局注册echart实列
                 option: {
                     title: {
                         text: '中国疫情地图',
