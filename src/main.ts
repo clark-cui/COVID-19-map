@@ -14,6 +14,8 @@ import {
   Lazyload ,
   Toast,
   NavBar ,
+  DropdownMenu,
+  DropdownItem,
 } from 'vant'
 
 
@@ -27,6 +29,8 @@ Vue.use(SwipeItem);
 Vue.use(Lazyload);
 Vue.use(Toast);
 Vue.use(NavBar);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
 
 new Vue({
   router,
