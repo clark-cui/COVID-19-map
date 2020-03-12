@@ -12,7 +12,7 @@
     </van-swipe>
 
  
-    <van-button type="info" size="normal" @click="onClickLeft" round="true">查看疫情地图</van-button>
+    <van-button type="info" size="normal" @click="onClickLeft" :round=true>查看疫情地图</van-button>
   </div>
 </template>
 

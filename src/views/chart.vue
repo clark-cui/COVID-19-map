@@ -51,11 +51,11 @@
                         value: '',
                     },
                 ],
-                arr: [],               //用来缓存累计数字
+                arr: [], //用来缓存累计数字
                 updateTimeStore: '', //用来缓存更新时间
-                ChinaList: [],  
-                isCity: false,         //用来禁止二级地图点击事件
-                myChart: null,          //全局注册echart实列
+                ChinaList: [],
+                isCity: false, //用来禁止二级地图点击事件
+                myChart: null, //全局注册echart实列
                 option: {
                     title: {
                         text: '中国疫情地图',
@@ -172,6 +172,13 @@
                     //缓存数量和时间
                     this.arr = arr
                     this.updateTimeStore = this.getTime(arr.updateTime)
+
+
+                    //获取map
+                    //这里设置setTime是因为接口的服务器对于并发处理能力弱，会报错503
+                   setTimeout(()=>{
+                        this.getMap();
+                   },200) 
                 }).catch((e) => {
                     console.log(e, "overall接口报错")
                 })
@@ -203,6 +210,83 @@
                 this.option.title.text = '中国疫情地图'
                 // 绘制图表
                 this.myChart.setOption(this.option);
+            },
+            getMap() {
+                axios.get('https://lab.isaaclin.cn/nCoV/api/area').then((r) => {
+                    // console.log(r)
+                    this.myChart.hideLoading();
+
+                    // //缓存json，1个小时后再重新获取
+                    // localStorage.setItem('virus-area-json')=JSON.stringify(r)
+
+                    this.ChinaList = r.data.results.filter((item) => {
+                        return item.countryName === '中国'
+                    })
+                    // console.log(this.ChinaList)
+
+
+
+                    //赋值展示数组
+                    let list = this.ChinaList.map(item => ({
+                        name: item.provinceShortName,
+                        value: item.currentConfirmedCount
+                    }))
+
+                    //填充data=[{name:',value:'}...]
+                    // console.log(list, "data")
+                    this.option.series[0].data = list;
+
+                    // 绘制图表
+                    this.myChart.setOption(this.option);
+
+                    //添加点击事件
+                    this.myChart.on('click', (params) => {
+                        console.log(params)
+                        //二级地图不触发
+                        if (this.isCity) {
+                            return
+                        }
+
+                        this.partTile = params.name + "疫情统计"
+
+                        let city = this.ChinaList.filter((item) => {
+                            return item.provinceShortName === params.name
+                        })
+                        this.numLst[0].value = city[0].currentConfirmedCount
+                        this.numLst[1].value = city[0].confirmedCount
+                        this.numLst[2].value = city[0].suspectedCount
+                        this.numLst[3].value = city[0].curedCount
+                        this.numLst[4].value = city[0].deadCount
+                        this.updateTime = this.getTime(city[0].updateTime)
+
+
+
+                        let cityList = city[0].cities.map(item =>
+                            //此处由于数据问题，导致城市缺少，比如西双版纳=西双版纳傣族自治州，这类数据没办法
+                            ({
+                                //数据缺少'市'
+                                name: item.cityName.indexOf('州') == '-1' && item.cityName
+                                    .indexOf(
+                                        '区') == '-1' ? item.cityName + '市' : item.cityName,
+                                value: item.currentConfirmedCount
+                            })
+
+                        );
+                        // console.log(cityList, "城市哦")
+
+                        this.option.series[0].data = cityList;
+                        this.option.series[0].map = params.name;
+                        this.option.title.text = params.name + '疫情地图'
+                        // 绘制图表
+                        this.myChart.setOption(this.option);
+                        //更新isCity
+                        this.isCity = true;
+                    });
+
+                }).catch(e => {
+                    console.log(e, "area接口报错")
+                    this.myChart.hideLoading();
+                })
             }
         },
         async mounted() {
@@ -213,81 +297,7 @@
             //获取接口数据
             this.myChart.showLoading();
 
-            axios.get('https://lab.isaaclin.cn/nCoV/api/area').then((r) => {
-                // console.log(r)
-                this.myChart.hideLoading();
 
-                // //缓存json，1个小时后再重新获取
-                // localStorage.setItem('virus-area-json')=JSON.stringify(r)
-
-                this.ChinaList = r.data.results.filter((item) => {
-                    return item.countryName === '中国'
-                })
-                // console.log(this.ChinaList)
-
-
-
-                //赋值展示数组
-                let list = this.ChinaList.map(item => ({
-                    name: item.provinceShortName,
-                    value: item.currentConfirmedCount
-                }))
-
-                //填充data=[{name:',value:'}...]
-                // console.log(list, "data")
-                this.option.series[0].data = list;
-
-                // 绘制图表
-                this.myChart.setOption(this.option);
-
-                //添加点击事件
-                this.myChart.on('click', (params) => {
-                    console.log(params)
-                    //二级地图不触发
-                    if (this.isCity) {
-                        return
-                    }
-
-                    this.partTile = params.name + "疫情统计"
-
-                    let city = this.ChinaList.filter((item) => {
-                        return item.provinceShortName === params.name
-                    })
-                    this.numLst[0].value = city[0].currentConfirmedCount
-                    this.numLst[1].value = city[0].confirmedCount
-                    this.numLst[2].value = city[0].suspectedCount
-                    this.numLst[3].value = city[0].curedCount
-                    this.numLst[4].value = city[0].deadCount
-                    this.updateTime = this.getTime(city[0].updateTime)
-
-
-
-                    let cityList = city[0].cities.map(item =>
-                        //此处由于数据问题，导致城市缺少，比如西双版纳=西双版纳傣族自治州，这类数据没办法
-                        ({
-                            //数据缺少'市'
-                            name: item.cityName.indexOf('州') == '-1' && item.cityName
-                                .indexOf(
-                                    '区') == '-1' ? item.cityName + '市' : item.cityName,
-                            value: item.currentConfirmedCount
-                        })
-
-                    );
-                    // console.log(cityList, "城市哦")
-
-                    this.option.series[0].data = cityList;
-                    this.option.series[0].map = params.name;
-                    this.option.title.text = params.name + '疫情地图'
-                    // 绘制图表
-                    this.myChart.setOption(this.option);
-                    //更新isCity
-                    this.isCity = true;
-                });
-
-            }).catch(e => {
-                console.log(e, "area接口报错")
-                this.myChart.hideLoading();
-            })
 
 
         },
