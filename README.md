@@ -39,6 +39,8 @@ $ npm run serve
 
 [数据仓库](https://github.com/BlankerL/DXY-COVID-19-Data)
 
+### **技术栈**
+vuecli vuex vue router axios vant scss 
 ### **问题**
 加载慢(接口调用慢)
 
