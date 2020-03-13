@@ -32,6 +32,13 @@ $ cnpm i
 $ npm run serve
 ```
 
+**需要设置chrome跨域**
+```
+--disable-web-security --user-data-dir=新建文件位置
+```
+[点击这里查看](https://blog.csdn.net/wangxinxin1992816/article/details/88655150)
+
+
 ### **数据来源**
 为了避免频繁爬虫造成网页性能浪费(我懒)，直接用了BlankerL爬取的丁香园的接口。
 
