@@ -59,8 +59,11 @@
         flex-wrap: nowrap;
         font-size: px(60);
         padding:px(15) 0;
+        border-bottom: 2px solid #1989fa;
         .newsTitle{
             text-align: left;
+            width: 12rem;
+            line-height: px(80);
         }
         .newsTime{
             color: #999999;

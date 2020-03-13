@@ -21,26 +21,47 @@
             newsItem,
         },
         methods: {
-            getNews() {
+            getNews(d) {
+                if (d === '') {
+                    this.getChinaNews()
+                }else if(d==="世界"){
+                    this.getChinaNews()
+
+                }else{
+                    this.getProvinceNews(d)
+                }
+
+
+            },
+            getProvinceNews(d) {
+                        console.log(d,"传递了啥")
                 axios.get('https://lab.isaaclin.cn/nCoV/api/news', {
-                    params:{
-                            province : '湖北省',
-                    }               
-                    }
-                )
+                        params: {
+                            province: d,
+                        }
+                    })
+                    .then((r) => {
+                        console.log(r, "onews接口数据")
+                        this.newsArr = r.data.results
 
-                
-                .then((r) => {
-                    console.log(r, "onews接口数据")
-                    this.newsArr = r.data.results
+                    }).catch((e) => {
+                        console.log(e, "news接口报错")
+                    })
+            },
+            getChinaNews() {
 
-                }).catch((e) => {
-                    console.log(e, "news接口报错")
-                })
+                axios.get('https://lab.isaaclin.cn/nCoV/api/news')
+                    .then((r) => {
+                        console.log(r, "onews接口数据")
+                        this.newsArr = r.data.results
+
+                    }).catch((e) => {
+                        console.log(e, "news接口报错")
+                    })
             }
         },
         mounted() {
-            this.getNews();
+            this.getNews('世界');
         },
         activated() {
 

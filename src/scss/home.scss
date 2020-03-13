@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     /deep/ .van-swipe{
-
+                height: 13rem;
         /deep/ .van-swipe__track{
             /deep/ .van-swipe-item{
                 img{
@@ -20,4 +20,14 @@
             margin: 0 auto;
             margin-bottom: px(70);
     }   
+
+    /deep/.van-dropdown-menu__title::after{
+        color: white;
+    }
+    /deep/.van-ellipsis{
+        color: white;
+    }
+    /deep/.van-dropdown-menu__item{
+        background-color: #1989fa;
+    }
 }
