@@ -23,7 +23,7 @@
 
 clone下来打开
 ```
-$git clone https://github.com/clark-cui/virus-map.git
+$ git clone https://github.com/clark-cui/virus-map.git
 ```
 ```
 $ cnpm i
@@ -33,15 +33,15 @@ $ npm run serve
 ```
 
 ### **数据来源**
-为了避免频繁爬虫造成网易性能浪费(我懒)，直接用了BlankerL爬取丁香园的接口。
+为了避免频繁爬虫造成网页性能浪费(我懒)，直接用了BlankerL爬取的丁香园的接口。
 
 [项目地址](https://github.com/BlankerL/DXY-COVID-19-Crawler)
 
 [数据仓库](https://github.com/BlankerL/DXY-COVID-19-Data)
 
 ### **技术栈**
-vuecli vuex vue router axios vant scss 
+vuejs+ vuex +vue router+ axios+ vant+ scss +newlify +alioss
 ### **问题**
 加载慢(接口调用慢)
 
-模板是用官方脚手架，改了点东西，没有测试，也没有添加移动端调试插件，后期有空更新。
+模板是用官方脚手架，没有添加单元测试，没有添加移动端调试插件Vconsole，后期有空更新。
