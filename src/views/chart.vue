@@ -14,6 +14,8 @@
 
         <div class="text" v-show="isCity">由于爬取的数据在部分地区命名与echart冲突（少数民族自治州），故图中部分地区会有数据缺失，以疫情统计数据为准</div>
         <div class="time">更新时间：{{updateTime}}</div>
+    <van-button type="info" size="normal" @click="onClickLeft" :round=true>查看疫情新闻</van-button>
+
     </div>
 </template>>
 <script>
@@ -138,6 +140,9 @@
 
         },
         methods: {
+            onClickLeft(){
+                this.$router.go(-1);
+            },
             //获取时间
             getTime(t) {
                 console.log(t)
