@@ -1,6 +1,11 @@
 const provinceList=
   [
     {
+      "text":"全国",
+      "value":"34",
+    
+    },
+    {
       "text":"北京市",
       "value":"0",
     
@@ -169,7 +174,7 @@ const provinceList=
     },
     {
       "text":"澳门特别行政区",
-      "value":"34",
+      "value":"33",
    
     }
   ]
