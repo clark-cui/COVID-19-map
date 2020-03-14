@@ -8,11 +8,18 @@
 ### **效果**
 
 
-![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%88%87%E6%8D%A2.gif)
+<!-- ![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%88%87%E6%8D%A2.gif)
 
 ![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E8%B7%B3%E8%BD%AC.gif)
 
-![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%9C%B0%E5%9B%BE.gif)
+![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%9C%B0%E5%9B%BE.gif) -->
+
+
+![](./src/assets/切换.gif)
+
+![](./src/assets/跳转.gif)
+
+![](./src/assets/地图.gif)
 
 
 ### **查看**
