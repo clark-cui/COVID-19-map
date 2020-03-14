@@ -1,4 +1,8 @@
-# **COVID-19**
+![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/cirus-logo.png)
+
+# **COVID-19**  ![]( https://img.shields.io/badge/license-MIT-green/)  ![](https://img.shields.io/badge/npm-v6.7.0-green)  ![](https://img.shields.io/badge/node-v11.10.0-green)  ![](https://img.shields.io/badge/release-v1.0.0-green)
+
+
 移动端疫情地图，新冠肺炎，COVID-19
 
 分为两个页面，首页展示各地新闻，地图页展示疫情图和统计数据，可以在全国与省级切换
@@ -7,19 +11,14 @@
 
 ### **效果**
 
-
-<!-- ![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%88%87%E6%8D%A2.gif)
+<!-- 阿里云oss地址，为了减小打包体积  -->
+![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%88%87%E6%8D%A2.gif)
 
 ![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E8%B7%B3%E8%BD%AC.gif)
 
-![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%9C%B0%E5%9B%BE.gif) -->
+![](https://gif-clark-cui.oss-cn-beijing.aliyuncs.com/%E5%9C%B0%E5%9B%BE.gif)
 
 
-![](./src/assets/切换.gif)
-
-![](./src/assets/跳转.gif)
-
-![](./src/assets/地图.gif)
 
 
 ### **查看**
