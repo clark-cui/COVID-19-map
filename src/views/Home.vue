@@ -3,7 +3,6 @@
     <div class="top">
       <van-dropdown-menu>
         <van-dropdown-item v-model="value1" :options="option1" />
-
       </van-dropdown-menu>
 
       <van-swipe :autoplay="3000" @change="onChange">
@@ -13,9 +12,7 @@
       </van-swipe>
     </div>
 
-
     <news-list ref="newsList"></news-list>
-
     <van-button type="info" size="normal" @click="onClickLeft" :round=true>查看疫情地图</van-button>
   </div>
 </template>
@@ -76,6 +73,5 @@
 </script>
 <style lang='scss' scoped>
   @import'../scss/mixin.scss';
-
   @import '../scss/home.scss';
 </style>
