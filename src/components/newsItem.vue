@@ -8,7 +8,7 @@
     export default {
         props:{
                 title:String,
-                time: Number,
+                time: String,
                 sourceUrl:String,
         },
         name: 'newsItem',
@@ -19,7 +19,8 @@
         },
         methods: {
               //获取时间
-            getTime(t) {
+            getTime(Ot) {
+                let t=Number(Ot);
                 // console.log(t)
                 let date = new Date(t);
                 let year = date.getFullYear();
