@@ -40,7 +40,7 @@ $ cnpm i
 $ npm run serve
 ```
 
-**需要设置chrome跨域**
+**本地打开需要设置chrome跨域**
 ```
 --disable-web-security --user-data-dir=新建文件位置
 ```
@@ -48,7 +48,7 @@ $ npm run serve
 
 
 ### **数据来源**
-为了避免频繁爬虫造成网页性能浪费(我懒)，直接用了BlankerL爬取的丁香园的接口。
+数据来源于丁香园，BlankerL爬取了丁香园的数据，直接用了BlankerL提供的接口。
 
 [项目地址](https://github.com/BlankerL/DXY-COVID-19-Crawler)
 
@@ -59,4 +59,6 @@ vuejs+ vuex +vue router + axios+ vant+ scss +netlify +alioss
 ### **问题**
 加载慢(接口调用慢)
 
-模板是用官方脚手架，没有添加单元测试，没有添加移动端调试插件Vconsole，后期有空更新。
+模板是用官方脚手架，没有添加单元测试，没有添加移动端调试插件Vconsole。
+
+目前项目所使用的接口已经挂掉。
